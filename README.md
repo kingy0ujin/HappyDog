@@ -22,11 +22,6 @@
 * Database / Storage: Firebase Firestore, Firebase Storage
 * Design / Tools: Figma, GitHub, Postman
 
-## Project Structure
-
-```
-[프로젝트 폴더 구조를 여기에 작성]
-```
 
 ## Screenshots
 
@@ -60,24 +55,10 @@
 * `[Flask 서버 파일]`: 모델 추론 API
 * `[Android 앱 모듈]`: 앱 화면 및 서버 연동
 
-## Setup
-
-```
-[설치 방법을 여기에 작성]
-```
-
-## Run
-
-```
-[실행 방법을 여기에 작성]
-```
-
 ## Portfolio Highlights
 
 * ResNet50, EfficientNet-B0, ViT를 비교 실험해 정확도가 가장 높은 EfficientNet-B0을 안구 질환 분류기로 채택
 * 모든 질환의 예측 확률이 40% 이하이면 정상으로 판정하는 기준 설계
-* SE-ResNeXt-50 계열 백본 기반의 커스텀 비문 인식 모델과 코사인 유사도 기반 신원 인증 구현
-* 2D 키포인트 시계열과 바운딩 박스 정규화(스케일 불변성)를 활용한 LSTM 행동·감정 분석 파이프라인 구성
 * 분류, 인증, 행동 분석 등 서로 다른 AI 모델 3종을 하나의 모바일 서비스로 통합
 * 6인 팀 프로젝트로 Android, Flask, Firebase 연동 개발
 
