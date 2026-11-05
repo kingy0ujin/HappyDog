@@ -30,7 +30,6 @@
 <p float="left">
   <img src="./assets/eye1.png" width="150" />
   <img src="./assets/eye2.png" width="150" />
-  <img src="./assets/eye3.png" width="150" />
 </p>
 
 #### [멍스타그램]
