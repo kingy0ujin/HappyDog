@@ -2,7 +2,7 @@
 
 초보 견주를 위해 건강 관리, 주변 시설 지도, 커뮤니티, 행동 해석을 한 곳에서 제공하는 AI 펫케어 안드로이드 애플리케이션입니다.
 
-![전체샷](./assets/happydog_full.bmp)
+![전체샷](./assets/all.png)
 
 2025 동양미래대학교 컴퓨터공학부 인공지능소프트웨어학과 졸업작품 · 팀 식스센스
 
@@ -30,30 +30,26 @@
 
 ## Screenshots
 
-[펫케어 - 안구 검사 / 기록 / 백과사전]
+#### [펫케어 - 안구 검사 / 기록 / 백과사전]
 
 <p float="left">
-  <img src="./assets/안구질환.gif" width="150" />
-  <img src="./assets/기록.gif" width="150" />
-  <img src="./assets/백과사전.gif" width="150" />
+  <img src="./assets/eye1.png" width="150" />
+  <img src="./assets/eye2.png" width="150" />
+  <img src="./assets/eye3.png" width="150" />
 </p>
 
-[지도]
+#### [멍스타그램]
 
 <p float="left">
-  <img src="./assets/지도.gif" width="150" />
+  <img src="./assets/community1.png" width="150" />
+  <img src="./assets/community2.png" width="150" />
 </p>
 
-[멍스타그램]
+#### [강아지 번역기]
 
 <p float="left">
-  <img src="./assets/커뮤니티.gif" width="150" />
-</p>
-
-[강아지 번역기]
-
-<p float="left">
-  <img src="./assets/강아지번역기.gif" width="150" />
+  <img src="./assets/trans1.png" width="150" />
+  <img src="./assets/trans2.png" width="150" />
 </p>
 
 ## Key Files
