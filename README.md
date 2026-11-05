@@ -1,184 +1,105 @@
-안드로이드 스튜디오 터미널에 
-./gradlew signingReport 입력 오류나면 
-gradlew signingReport 입력
+# 행복하개 (Happy-Dog)
 
-SHA1:코드 복사
-https://console.firebase.google.com/u/0/project/happydog-test/settings/general/android:com.example.pet_project_frontend?hl=ko
-하단에 파란색 글씨 디지털 지문 (SHA1)추가 
-google-services.json 다운 
-app\google-services.json 여기에 투하
+초보 견주를 위해 건강 관리, 주변 시설 지도, 커뮤니티, 행동 해석을 한 곳에서 제공하는 AI 펫케어 안드로이드 애플리케이션입니다.
 
- 핸드폰으로 킬거면cmd창 열어서  ipconfig 입력 "IPv4" +:5000
-#API_BASE_URL="http://IPv4:5000/" 
-애뮬레이터로 실행할거면
-API_BASE_URL="http://10.0.2.2:5000/"
-센스있게 주석 컨트롤 해가면서 테스트 해주세요
+![전체샷](./assets/happydog_full.bmp)
 
+2025 동양미래대학교 컴퓨터공학부 인공지능소프트웨어학과 졸업작품 · 팀 식스센스
 
-백엔드 연동 방법 
-기존 거있다면 develop pull 
-    
-    ```
-    공통(CPU)
-    cd c:경로\HappyDog\pet_project_backend
-    conda env create -f environment.yml
-    conda activate happydog-backend
-    pip install -e eyes_models
-    pip install -e nose_models
-    python run.py
-    ```
+## What it does
 
-    Windows CPU
-    ```
-    cd c:경로\HappyDog\pet_project_backend
-    conda env create -f envs\environment.win-cpu.yml
-    conda activate happydog-win-cpu
-    pip install -e eyes_models
-    pip install -e nose_models
-    python run.py
-    ```
-    Windows CUDA 11.8
-    ```
-    cd c:경로\HappyDog\pet_project_backend
-    conda env create -f envs\environment.win-cuda118.yml
-    conda activate happydog-win-cuda118
-    pip install -e eyes_models
-    pip install -e nose_models
-    python run.py
-    ```
-    macOS CPU
-    ```
-    cd pet_project_backend
-    conda env create -f envs/environment.mac-cpu.yml
-    conda activate happydog-mac-cpu
-    pip install -e eyes_models
-    pip install -e nose_models
-    python run.py
-    ```
+* 사료·활동·체중 등 건강 지표를 기록하고, 견종 백과사전과 건강 설문지를 제공합니다.
+* 눈 사진으로 결막염·백내장·궤양성 각막질환·안검내반증 가능성을 추정합니다. (임상 진단을 대체하지 않는 보조 도구)
+* 사용자 위치 기준으로 주변 동물병원과 반려견 동반 가능 시설을 보여줍니다.
+* 비문 등록으로 견주를 인증하는 강아지 전용 SNS(멍스타그램)를 제공합니다.
+* 반려견 행동 영상을 분석해 감정과 상태를 자연어로 보여줍니다. (강아지 번역기)
 
-        추가: OS/옵션별 환경 파일
+## Tech Stack
 
-        - Windows
-            - CPU 전용: `envs/environment.win-cpu.yml`
-            - CUDA 11.8: `envs/environment.win-cuda118.yml`
+* Frontend: Kotlin, Android Studio
+* Backend: Python, Flask
+* AI: PyTorch, TensorFlow
+* Database / Storage: Firebase Firestore, Firebase Storage
+* Design / Tools: Figma, GitHub, Postman
 
-            ```bash
-            conda env create -f envs/environment.win-cpu.yml
-            conda activate happydog-win-cpu
+## Project Structure
 
-            conda env create -f envs/environment.win-cuda118.yml
-            conda activate happydog-win-cuda118
-            ```
-
-        - macOS
-            - CPU 전용: `envs/environment.mac-cpu.yml`
-
-            ```bash
-            conda env create -f envs/environment.mac-cpu.yml
-            conda activate happydog-mac-cpu
-            ```
-
-3.  **가상환경 활성화**
-
-    ```bash
-    # 공통 CPU 환경
-    conda activate happydog-backend
-    ```
-
-3-1. **로컬 패키지 설치 (개발 편의용)**
-
-```bash
-# pet_project_backend에서 실행
-pip install -e eyes_models
-pip install -e nose_models
+```
+[프로젝트 폴더 구조를 여기에 작성]
 ```
 
-##### **2.3. 비밀 파일 설정 (`.env` 및 `secrets`)**
+## Screenshots
 
-Git으로 공유되지 않는 민감한 파일들은 아래의 안내에 따라 설정해야 합니다.
+[펫케어 - 안구 검사 / 기록 / 백과사전]
 
-1.  **.env 파일 생성**
-    프로젝트 최상위 폴더의 `.env.example` 파일을 복사하여 `.env` 파일을 새로 만듭니다.
+<p float="left">
+  <img src="./assets/안구질환.gif" width="150" />
+  <img src="./assets/기록.gif" width="150" />
+  <img src="./assets/백과사전.gif" width="150" />
+</p>
 
-2.  **secrets 폴더 내 키 파일 배치**
-      * `your-dev-firebase-key.json` (개발용 Firebase 키) 
-      * `your-test-firebase-key.json` (테스트용 Firebase 키)
-      * `your_google_client_secret.json` (Google OAuth용 클라이언트 키)
+[지도]
 
-    전달받은 파일들을 `pet_project_backend/secrets/` 폴더 안에 저장합니다. `.env` 파일에 작성된 경로와 파일명이 일치해야 합니다.
+<p float="left">
+  <img src="./assets/지도.gif" width="150" />
+</p>
 
------
+[멍스타그램]
 
-#### **3. 의존성 관리: 라이브러리 추가 및 공유**
+<p float="left">
+  <img src="./assets/커뮤니티.gif" width="150" />
+</p>
 
-#### **3-1. 실행 방법**
+[강아지 번역기]
 
-- 항상 `pet_project_backend` 폴더에서 실행하는 것을 권장합니다.
+<p float="left">
+  <img src="./assets/강아지번역기.gif" width="150" />
+</p>
 
-```bash
-# Windows(cmd)
-cd pet_project_backend
-python run.py
+## Key Files
 
-# macOS(zsh/bash)
-cd pet_project_backend
-python run.py
+* `[안구 질환 분석 모델 파일]`: 안구 이미지 전처리 후 EfficientNet-B0으로 질환별 확률 산출
+* `[비문 인식 모델 파일]`: 비문 영역 검출·크롭 후 임베딩 코사인 유사도로 동일 개체 인증
+* `[행동 분석 모델 파일]`: 영상에서 2D 키포인트를 추출하고 LSTM으로 감정·상태 분류
+* `[Flask 서버 파일]`: 모델 추론 API
+* `[Android 앱 모듈]`: 앱 화면 및 서버 연동
+
+## Setup
+
+```
+[설치 방법을 여기에 작성]
 ```
 
-환경 변수는 `pet_project_backend/.env`에서 로드됩니다.
+## Run
 
-#### **3-2. 모델/시크릿 파일 배치 (중요)**
+```
+[실행 방법을 여기에 작성]
+```
 
-- 구글 드라이브(안구 모델, 코 모델, secrets 압축):
-    https://drive.google.com/drive/folders/1t-cbq0UBkc5tzTF7ATfKGuoRL6yoqNUh?usp=drive_link
+## Portfolio Highlights
 
-- 압축 해제 후 배치 위치 예시:
-    - 시크릿 키들: `pet_project_backend/secrets/`
-        - 예: `happydog-***.json`, `happydog-test-***.json`, Google OAuth client secret 등
-    - 안구/코 모델 가중치 및 인덱스:
-        - 눈(eyes): `pet_project_backend/eyes_models/saved_models/`
-        - 코(nose): `pet_project_backend/nose_models/saved_models/`, `pet_project_backend/nose_models/faiss_index/`
+* ResNet50, EfficientNet-B0, ViT를 비교 실험해 정확도가 가장 높은 EfficientNet-B0을 안구 질환 분류기로 채택
+* 모든 질환의 예측 확률이 40% 이하이면 정상으로 판정하는 기준 설계
+* SE-ResNeXt-50 계열 백본 기반의 커스텀 비문 인식 모델과 코사인 유사도 기반 신원 인증 구현
+* 2D 키포인트 시계열과 바운딩 박스 정규화(스케일 불변성)를 활용한 LSTM 행동·감정 분석 파이프라인 구성
+* 분류, 인증, 행동 분석 등 서로 다른 AI 모델 3종을 하나의 모바일 서비스로 통합
+* 6인 팀 프로젝트로 Android, Flask, Firebase 연동 개발
 
-- `.env` 파일의 관련 항목이 실제 경로와 이름을 정확히 가리키는지 확인하세요.
-    - 예: `DEV_FIREBASE_CREDENTIALS_PATH`, `TEST_FIREBASE_CREDENTIALS_PATH`,
-                `YOLO_WEIGHTS_PATH`, `ML_CONFIG_PATH`, `EXTRACTOR_WEIGHTS_PATH`, `FAISS_INDEX_PATH`
+## Team (식스센스)
 
-개발 중 새로운 라이브러리를 설치한 경우, 반드시 다음 절차를 따라 팀원 전체에 공유해야 합니다.
+| 이름 | 역할 |
+|---|---|
+| 김유진 | AI, 프론트엔드 |
+| 심수현 | 프론트엔드 |
+| 김보성 | AI, 프론트엔드 |
+| 박정호 | AI, 백엔드 |
+| 김민결 | UI/UX, 프론트엔드 |
+| 김동연 | 프론트엔드 |
 
-1.  **라이브러리 설치:** 현재 활성화된 가상환경에 필요한 라이브러리를 설치합니다.
+지도교수: 조진형
 
-    ```bash
-    conda install -c conda-forge <package_name>   # 권장
-    conda install <package_name>
-    # conda에 없을 때만 pip 사용
-    pip install <package_name>
-    ```
+## Notes
 
-2.  **environment.yml 파일 업데이트:** 아래 명령어를 실행하여 현재 환경의 패키지 목록을 `environment.yml` 파일에 덮어씁니다.
-
-
-    ```bash
-    # 공통 CPU 환경 갱신 시
-    conda env export --no-builds -n happydog-backend > environment.yml
-
-    # OS/옵션별 환경은 각 환경명으로 별도 export 권장 (잠금 파일 용도)
-    conda env export --no-builds -n happydog-win-cuda118 > envs/environment.win-cuda118.lock.yml
-    ```
-
-3.  **커밋 및 푸시:** 변경된 `environment.yml` 파일을 커밋하고 푸시하여 팀원들에게 공유합니다. 다른 팀원들은 `conda env update --file environment.yml --prune` 명령으로 자신의 환경을 업데이트할 수 있습니다.
-
------
-
-#### **6. 결론 요약**
-
-1) run.py 실행 위치: `pet_project_backend` 폴더에서 실행
-2) Conda 설치 위치: `pet_project_backend`에서 `-f environment.yml` (또는 `envs/...`) 실행 권장
-3) 의존성 안정화:
-    - CPU/CUDA, OS별 환경 파일 분리
-    - OpenCV/FAISS는 conda 또는 pip 중 하나로만 사용 (혼용 금지)
-    - 핵심 스택만 버전 핀: Python 3.10, PyTorch 2.5.x, numpy 1.26, pandas 2.3 등
-
-
-
-
-
+* 안구 질환 스크리닝은 임상 진단을 대체하지 않는 보조 도구입니다.
+* 현재는 별도로 배포되어 있지 않으며, 위 스크린샷은 개발 당시 실행 화면입니다.
+* 2025 동양미래대학교 컴퓨터공학부 졸업작품집 수록 프로젝트입니다.
